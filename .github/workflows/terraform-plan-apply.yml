@@ -31,7 +31,8 @@ jobs:
         run: terraform fmt -check -recursive
 
       - name: Terraform Plan
-        run: terraform plan
+        id: tf-plan
+        run: terraform plan -out tfplan
 
       - name: Publish Terraform Plan
         uses: actions/upload-artifact@v3
