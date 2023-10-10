@@ -11,16 +11,6 @@ provider "azurerm" {
   features {}
 }
 
-data "terraform_remote_state" "azure_state_storage" {
-  backend = "azurerm"
-  config = {
-    resource_group_name  = "StorageRG-14"
-    storage_account_name = "taskboardstorage-14"
-    container_name       = "taskboardcontainer-14"
-    key                  = "terraform.tfstate"
-  }
-}
-
 # resource "random_integer" "ri" {
 #   min = 10000
 #   max = 99999
