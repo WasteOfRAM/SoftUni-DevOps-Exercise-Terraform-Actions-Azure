@@ -1,5 +1,10 @@
+name: Terraform Plan-Apply
+
 on:
-  push:
+  workflow_run:
+    workflows: ["File test workflow"]
+    types:
+      - comlited
 
 env:
   ARM_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
