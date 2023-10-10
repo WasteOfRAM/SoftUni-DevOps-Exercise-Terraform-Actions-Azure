@@ -13,24 +13,24 @@ env:
   ARM_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
 
 jobs:
-    terraform-state-storage:
-        name: Terraform state storage
-        runs-on: ubuntu-latest
+  terraform-state-storage:
+    name: Terraform state storage
+    runs-on: ubuntu-latest
     
-        steps:
-            - name: Checkout
-              uses: actions/checkout@v3
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
       
-            - name: Azure CLI login
-              uses: azure/login@v1
-              with:
-                creds: ${{ secrets.AZURE_CREDENTIALS }}
+      - name: Azure CLI login
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
       
-            - name: Setup Terraform
-              uses: hashicorp/setup-terraform@v2
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v2
       
-            - name: Terraform Init
-              run: terraform init
+      - name: Terraform Init
+        run: terraform init
             
-            - name: Terraform Apply
-            run: terraform apply -auto-approve -var-file=storage.tf
+      - name: Terraform Apply
+        run: terraform apply -auto-approve -var-file=storage.tf
