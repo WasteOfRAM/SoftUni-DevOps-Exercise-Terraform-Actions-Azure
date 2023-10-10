@@ -5,11 +5,20 @@ terraform {
       version = "=3.75.0"
     }
   }
+
+  backend "azurerm" {
+    resource_group_name  = var.storage_resource_group_name
+    storage_account_name = var.storage_account_name
+    container_name       = var.container_name
+    key                  = "terraform.tfstate"
+  }
 }
 
 provider "azurerm" {
   features {}
 }
+
+
 
 # resource "random_integer" "ri" {
 #   min = 10000
