@@ -2,7 +2,7 @@ name: Terraform Plan-Apply
 
 on:
   workflow_run:
-    workflows: ["File test workflow"]
+    workflows: ["Terraform Storage"]
     types:
       - completed
 
