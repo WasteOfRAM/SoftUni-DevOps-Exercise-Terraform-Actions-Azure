@@ -35,7 +35,10 @@ jobs:
       - name: Terraform Plan
         id: tf-plan
         run: terraform plan -out tfplan
-
+        env:
+          TF_VAR_sql_admin_login: ${{secrets.SQL_ADMIN_LOGIN}}
+          TF_VAR_sql_admin_password: ${{secrets.SQL_ADMIN_PASSWORD}}
+          
       - name: Publish Terraform Plan
         uses: actions/upload-artifact@v3
         with:
